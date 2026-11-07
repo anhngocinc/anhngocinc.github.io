@@ -1,0 +1,293 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QuickProj of AnhNgocInc — Tự Động Hóa Khởi Tạo Adobe Premiere Pro Siêu Tốc (Rust)</title>
+  <meta name="description" content="QuickProj by AnhNgocInc.com: Công cụ độc lập viết bằng Rust giúp dựng sẵn project Adobe Premiere Pro (.prproj) chỉ với một cú nhấp chuột phải trên Windows Explorer.">
+  
+  <link rel="icon" type="image/png" href="../../assets/logo.png">
+  <meta property="og:title" content="QuickProj of AnhNgocInc — Tự Động Hóa Adobe Premiere Pro Siêu Tốc">
+  <meta property="og:description" content="Tiện ích độc lập viết bằng Rust, quét hàng nghìn file media và tạo project Premiere Pro chuẩn Gzip trong dưới 1 giây, bảo toàn trọn vẹn phân cấp Bin.">
+  <meta property="og:image" content="../../assets/quickproj-icon.png">
+  <meta property="og:type" content="website">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@600;700;800;900&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/content-view.css">
+</head>
+<body>
+
+  <div class="app-viewport">
+    <main class="bento-wrapper">
+
+      <!-- HEADER ĐỒNG BỘ CHUẨN THƯƠNG HIỆU -->
+      <header class="site-header anim-fade-up">
+        <a href="../../index.html" class="brand-badge" style="text-decoration: none;">
+          <div class="brand-logo-wrapper">
+            <img src="../../assets/logo.png" alt="AnhNgocInc Logo" class="brand-logo-img">
+          </div>
+          <div>
+            <h2 class="brand-title">AnhNgoc<span>Inc</span></h2>
+            <span class="brand-tagline">Founder, Research and Development</span>
+          </div>
+        </a>
+
+        <!-- Menu điều hướng chính -->
+        <ul class="site-nav-menu">
+          <li><a href="../../index.html" class="nav-link-pill">Trang chủ</a></li>
+          <li><a href="../../gallery.html" class="nav-link-pill is-active">Dự án</a></li>
+          <li><a href="../../videos.html" class="nav-link-pill">Video (YouTube)</a></li>
+          <li><a href="../../audio.html" class="nav-link-pill">Audio (Hanoirec)</a></li>
+          <li>
+            <a href="tel:+84708090007" class="nav-link-pill hotline-btn" title="Gọi Hotline trực tiếp">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+              </svg>
+              <span>(+84) 0708090007</span>
+            </a>
+          </li>
+        </ul>
+      </header>
+
+      <!-- BREADCRUMB ĐIỀU HƯỚNG NHANH -->
+      <div class="header-nav-group anim-fade-up" style="margin-bottom: 20px;">
+        <a href="../../index.html" class="nav-back-link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+          <span>Trang chủ</span>
+        </a>
+        <span class="breadcrumb-separator">/</span>
+        <a href="../../gallery.html" class="nav-back-link" style="background: transparent; border: none; padding: 0;">Dự án</a>
+        <span class="breadcrumb-separator">/</span>
+        <span class="breadcrumb-current">QuickProj v0.1.0</span>
+      </div>
+
+      <!-- LƯỚI BENTO GRID ĐỒNG BỘ -->
+      <div class="subpage-bento-grid">
+
+        <!-- CỘT CHÍNH: CHI TIẾT ỨNG DỤNG QUICKPROJ -->
+        <article class="bento-card subpage-main-card anim-fade-up">
+          <header class="article-header">
+            <span class="article-badge" style="color: #F97316; border-color: rgba(249, 115, 22, 0.3); background: rgba(249, 115, 22, 0.1);">
+              Phần Mềm • Công Cụ Độc Quyền AnhNgocInc
+            </span>
+            <h1 class="article-title">QuickProj of AnhNgocInc.com</h1>
+            <div class="article-meta">
+              <span>Phiên bản: v0.1.0 (Windows x64)</span>
+              <span>•</span>
+              <span>Ngôn ngữ: Rust (Native)</span>
+              <span>•</span>
+              <span>Thời gian xử lý: &lt; 1 giây</span>
+            </div>
+          </header>
+
+          <div class="article-hero-media" style="background: linear-gradient(135deg, rgba(249, 115, 22, 0.12), rgba(15, 23, 42, 0.8)); display: flex; align-items: center; justify-content: center; padding: 40px; border-radius: 12px; margin-bottom: 24px;">
+            <img src="../../assets/quickproj-icon.png" alt="QuickProj Logo & Icon" style="max-width: 220px; height: auto; filter: drop-shadow(0 10px 25px rgba(249, 115, 22, 0.4));">
+          </div>
+
+          <div class="article-body">
+            <h2>Giới thiệu công cụ</h2>
+            <p>
+              <strong>QuickProj of AnhNgocInc.com</strong> là tiện ích độc lập viết bằng ngôn ngữ hệ thống <strong>Rust</strong> dành cho hệ điều hành Windows, giúp dựng sẵn toàn bộ project Adobe Premiere Pro (<code>.prproj</code>) chỉ với một cú nhấp chuột phải trên bất kỳ thư mục media nào trong Windows Explorer.
+            </p>
+            <p>
+              Được sinh ra từ chính nhu cầu thực tế của AnhNgocInc sau hơn 20 năm quản lý hàng chục nghìn giờ footage phim trường, QuickProj giải quyết dứt điểm nỗi ám ảnh kéo thả, phân loại bin thủ công và chờ đợi Premiere import hàng loạt file nặng nề.
+            </p>
+
+            <div class="highlight-box" style="border-left-color: #F97316;">
+              <h3 style="color: #F97316;">⚡ Tốc độ thần tốc & Hiệu năng tối đa</h3>
+              <p>
+                Quét đệ quy hàng nghìn file media và tự động biên dịch, nén Gzip ra file project Premiere Pro chuẩn XML/Gzip tương thích 100% với Adobe Premiere Pro 2022+ trong vòng chưa đầy <strong>1 giây</strong>!
+              </p>
+            </div>
+
+            <h2>Tính năng đột phá</h2>
+            <div class="workflow-steps">
+              <div class="step-card">
+                <div class="step-num" style="color: #F97316; border-color: #F97316;">01</div>
+                <div class="step-content">
+                  <h4>Bảo toàn 100% phân cấp thư mục (Nested Bins)</h4>
+                  <p>Mọi cây thư mục con chứa Video, Audio, Graphics, Photos trên ổ cứng đều được chuyển hóa chính xác thành cấu trúc Bins lồng nhau trong Premiere Pro mà không bị xáo trộn.</p>
+                </div>
+              </div>
+
+              <div class="step-card">
+                <div class="step-num" style="color: #F97316; border-color: #F97316;">02</div>
+                <div class="step-content">
+                  <h4>Tự động dò thông số & Tạo Sequence chuẩn</h4>
+                  <p>Tích hợp <code>ffprobe</code> thông minh: tự động đọc độ phân giải (4K, DCI, 1080p), tỉ lệ khung hình (23.976, 25, 29.97, 59.94 fps) và audio sample rate từ clip video đầu tiên để tạo sẵn Timeline hoàn hảo.</p>
+                </div>
+              </div>
+
+              <div class="step-card">
+                <div class="step-num" style="color: #F97316; border-color: #F97316;">03</div>
+                <div class="step-content">
+                  <h4>Phân loại & Tối ưu hóa từng loại Media</h4>
+                  <p>Phân biệt thông minh giữa Video (gắn đủ video & audio stream), Audio thuần túy (loại bỏ video stream tránh lỗi render), và Still Images (định cấu hình hiển thị 5 giây chuẩn xác kèm nhãn màu riêng biệt).</p>
+                </div>
+              </div>
+
+              <div class="step-card">
+                <div class="step-num" style="color: #F97316; border-color: #F97316;">04</div>
+                <div class="step-content">
+                  <h4>Tích hợp chuột phải Windows Explorer (Context Menu)</h4>
+                  <p>Đăng ký trực tiếp vào menu ngữ cảnh <code>HKCU</code> không cần cấp quyền Administrator. Nhấp chuột phải vào bất kỳ thư mục nào &rarr; chọn <em>"Create Project for Adobe Premiere"</em> là xong.</p>
+                </div>
+              </div>
+
+              <div class="step-card">
+                <div class="step-num" style="color: #F97316; border-color: #F97316;">05</div>
+                <div class="step-content">
+                  <h4>Cơ chế an toàn dữ liệu Atomic Write</h4>
+                  <p>Không bao giờ sửa đổi, ghi đè hay xóa tệp tin media gốc của người dùng. File project được ghi theo cơ chế nguyên tử (Atomic: ghi file tạm trước khi đổi tên hoàn tất), chống hỏng file tuyệt đối.</p>
+                </div>
+              </div>
+            </div>
+
+            <h2>Thông số kỹ thuật (Technical Specs)</h2>
+            <div class="specs-grid">
+              <div class="spec-cell">
+                <div class="spec-name">Ngôn ngữ phát triển</div>
+                <div class="spec-val">Rust 2021 Edition (Native binary)</div>
+              </div>
+              <div class="spec-cell">
+                <div class="spec-name">Hệ điều hành hỗ trợ</div>
+                <div class="spec-val">Windows 10 / Windows 11 (64-bit)</div>
+              </div>
+              <div class="spec-cell">
+                <div class="spec-name">Phiên bản Premiere tương thích</div>
+                <div class="spec-val">Adobe Premiere Pro 2022, 2023, 2024, 2025, 2026+</div>
+              </div>
+              <div class="spec-cell">
+                <div class="spec-name">Giao diện điều khiển</div>
+                <div class="spec-val">Windows Context Menu / Windows Toast / CLI</div>
+              </div>
+              <div class="spec-cell">
+                <div class="spec-name">Định dạng phân phối</div>
+                <div class="spec-val">Installer Setup (.exe) & Bản Di Động Portable (.zip)</div>
+              </div>
+              <div class="spec-cell">
+                <div class="spec-name">Dung lượng thực thi</div>
+                <div class="spec-val">Siêu nhẹ (~6.7 MB độc lập, không cần runtime)</div>
+              </div>
+            </div>
+
+            <h2>Lệnh chẩn đoán hệ thống (Doctor Mode)</h2>
+            <p>QuickProj tích hợp sẵn công cụ tự kiểm tra tính toàn vẹn <code>quickproj doctor</code> giúp kiểm tra template, ffprobe, registry và quyền ghi thư mục chỉ với một dòng lệnh duy nhất:</p>
+            <pre style="background: rgba(15, 23, 42, 0.95); padding: 16px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); color: #38BDF8; font-family: monospace; font-size: 0.88rem; overflow-x: auto;"><code>=== QuickProj Diagnostic Report (doctor) ===
+Component                 | Status  | Details
+---------------------------------------------------------------------------
+Template (Premiere 2022)  | [OK]    | Embedded template loaded and validated.
+Sequence Template         | [OK]    | Sequence template loaded successfully.
+Media Prober (ffprobe)    | [OK]    | Found at system path (ffprobe v6.0)
+Context Menu (HKCU)       | [OK]    | Registered in Windows Explorer.
+Config Directory          | [OK]    | Writable: %APPDATA%\quickproj
+---------------------------------------------------------------------------
+Result: All critical components are healthy.</code></pre>
+          </div>
+
+          <footer class="article-footer">
+            <div class="share-group">
+              <span class="share-tag">#QuickProj #Rust #PremierePro #AnhNgocInc #WorkflowAutomation</span>
+            </div>
+            <a href="../../gallery.html" class="bottom-close-btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+              </svg>
+              Quay lại Danh sách Dự án
+            </a>
+          </footer>
+        </article>
+
+        <!-- CỘT PHỤ (SIDEBAR) -->
+        <aside class="subpage-sidebar anim-fade-up">
+
+          <!-- Mini App Profile -->
+          <div class="bento-card sidebar-bento-card" style="border-color: rgba(249, 115, 22, 0.3);">
+            <div class="sidebar-profile-box">
+              <img src="../../assets/quickproj-icon.png" alt="QuickProj" class="sidebar-avatar" style="border-radius: 8px;">
+              <div>
+                <h3 class="sidebar-name" style="color: #F97316;">QuickProj</h3>
+                <span class="sidebar-role">Tự động hóa Premiere Pro</span>
+              </div>
+            </div>
+            <p class="sidebar-bio">
+              Công cụ độc quyền được kiến trúc bởi AnhNgocInc. Giúp tiết kiệm từ 15-30 phút chuẩn bị cho mỗi ngày dựng phim.
+            </p>
+            <a href="tel:+84708090007" class="btn-primary" style="width: 100%; justify-content: center; background: linear-gradient(135deg, #F97316 0%, #EA580C 100%);">
+              Yêu cầu cài đặt & Sử dụng
+            </a>
+          </div>
+
+          <!-- Ứng dụng đồng hành -->
+          <div class="bento-card sidebar-bento-card">
+            <div class="card-meta-tag" style="color: #10B981;">
+              ỨNG DỤNG ĐỒNG HÀNH
+            </div>
+            <div class="related-list">
+              <a href="wave-n-player.html" class="related-item-link" style="border-color: rgba(16, 185, 129, 0.3);">
+                <div class="related-meta">
+                  <div class="related-title" style="color: #10B981;">Wave N Player 1.2.2</div>
+                  <span class="related-tag">Trình phát nhạc & sample siêu tốc</span>
+                </div>
+              </a>
+              <a href="showreel-detail.html" class="related-item-link">
+                <div class="related-meta">
+                  <div class="related-title">Master Showreel 2026 (4K)</div>
+                  <span class="related-tag">Hồ sơ sản xuất TVC & Kỹ xảo</span>
+                </div>
+              </a>
+              <a href="../skills/skills-breakdown.html" class="related-item-link">
+                <div class="related-meta">
+                  <div class="related-title">Bảng phân tích công nghệ</div>
+                  <span class="related-tag">DaVinci • Premiere • Rust</span>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <!-- Hotline Liên hệ -->
+          <div class="bento-card sidebar-bento-card">
+            <div class="card-meta-tag">
+              HỖ TRỢ & CHUYỂN GIAO
+            </div>
+            <p style="font-size: 0.85rem; color: #94a3b8; line-height: 1.5; margin-bottom: 12px;">
+              AnhNgocInc cung cấp giải pháp chuyển giao công nghệ quy trình dựng phim và phần mềm cho các đài truyền hình, studio sản xuất và agency.
+            </p>
+            <a href="tel:+84708090007" class="social-tile-link phone" style="width: 100%; flex-direction: row; gap: 8px; padding: 10px;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+              </svg>
+              <span class="social-tile-name" style="font-size: 0.85rem; font-weight: 600;">Hotline: (+84) 0708090007</span>
+            </a>
+          </div>
+
+        </aside>
+
+      </div>
+
+      <!-- FOOTER ĐỒNG BỘ -->
+      <footer class="site-footer">
+        <div>
+          &copy; 2026 <strong>AnhNgocInc</strong>. All rights reserved. Bento Grid / Metro Dark Mode.
+        </div>
+        <div>
+          Phát triển bởi <span style="color: var(--neon-blue);">AnhNgocInc Software Engineering</span>
+        </div>
+      </footer>
+
+    </main>
+  </div>
+
+  <script src="../../js/main.js"></script>
+</body>
+</html>
+
